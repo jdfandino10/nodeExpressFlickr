@@ -1,18 +1,33 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Header from './Header';
+import Rainbow from './Rainbow';
 
 class App extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      'search':''
+    };
+  }
+
+  setText = (e) => {
+    this.setState({[e.target.name]: e.target.value});
+  };
+
+
   render() {
     return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
+
+      <div className="row">
+        <Header />
+        <div className="row">
+          <input id="search" name="search" type="text" placeholder="Ingrese la imagen a buscar" value={this.state.search}
+                onChange={this.setText} required="required" />
         </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <Rainbow query={this.state.search} />
       </div>
     );
   }

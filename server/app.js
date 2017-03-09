@@ -4,8 +4,10 @@ const morgan = require('morgan');
 const path = require('path');
 const flickr = require("flickrapi");
 const fs = require("fs");
+const cors =require("cors");
 
 const app = express();
+app.use(cors());
 
 // Assumes that there are two files containing the keys
 // $PROJECT_HOME/server/api_key.txt
