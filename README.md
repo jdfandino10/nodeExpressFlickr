@@ -1,3 +1,32 @@
+# Exam 1, web programming course
+This is an app that uses node+react+flickr api to show images with rainbow order. [You can see the working product here](https://jdfandino10.github.io/nodeExpressFlickr/index.html). Backend is deployed at heroku synched with master branch, having the api_key and api_secret variables configured there. To run the proyect locally, clone it:
+```
+git clone https://github.com/john-guerra/nodeExpressFlickr.git myApp
+cd myApp
+echo "my_flickr_api_key" > server/api_key.txt
+echo "my_flickr_api_secret" > server/api_secret.txt
+npm install
+```
+Then compile the front-end into the build folder using
+
+```
+npm run build
+```
+
+And finally run the server
+
+```
+node server
+```
+And open [http://localhost:9000](http://localhost:9000)
+
+[http://localhost:9000/flickr/query](http://localhost:9000/flickr/query) points to an endpoint that will return a JSON object with the Flickr results. For more information on the Flickr API check:
+* The [Flickr API documentation](https://www.flickr.com/services/api/)
+* The [flickrapi node module documentation](https://www.npmjs.com/package/flickrapi)
+* And this [page that explains how to build the urls for the images](https://www.flickr.com/services/api/misc.urls.html)
+
+Here is the Readme of the boilerplate, containing more information:
+
 # Node + Express + create-react-app + flickrApi Boilerplate
 
 This is a simple project that helps bootstrap projects that use create-react-app + node + express + flickrapi
