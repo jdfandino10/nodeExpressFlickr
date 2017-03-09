@@ -61,7 +61,7 @@ app.get('/flickr/:query', function (req, res) {
 		  	safe:1,
 		  	sort:"relevance",
 		  	text:req.params["query"],
-		  	per_page:3
+		  	per_page:5
 		  }, (err, data) => {
 		  	if (err) res.send(err);
 		  	console.log("Got flickr data sending it");

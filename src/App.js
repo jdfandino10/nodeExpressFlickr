@@ -53,7 +53,7 @@ class App extends Component {
         <div className="row">
           <div className="col-xs-2"></div>
           <div className="col-xs-6 col-md-4">
-            <input id="search" name="search" type="text" placeholder="Ingrese la imagen a buscar" onKeyPress={this.setText} />
+            <input id="search" name="search" type="text" placeholder="Ingrese la imagen a buscar (y presione enter)" onKeyPress={this.setText} />
           </div>
           <div className="col-xs-4 col-md-6"></div>
         </div>
@@ -61,7 +61,7 @@ class App extends Component {
         <div className="row">
           <div className="col-xs-2"></div>
           <div className="col-xs-6 col-md-4">
-            <input id="newColor" name="newColor" type="text" placeholder="Ingresa un nuevo color" onKeyPress={this.setText}/>  
+            <input id="newColor" name="newColor" type="text" placeholder="Ingrese un nuevo color (tipo css, y presione enter)" onKeyPress={this.setText}/>  
           </div>
           <div className="col-xs-4 col-md-6"></div>
         </div>
