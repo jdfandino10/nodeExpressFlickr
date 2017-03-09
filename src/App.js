@@ -17,7 +17,7 @@ class App extends Component {
   setText = (e) => {
     if (e.key === 'Enter' && e.target.value !== '') {
       this.setState({[e.target.name]: e.target.value});
-      e.target.value = "";
+      if(e.target.value === 'newColor') e.target.value = "";
     }
     return true;
   };
