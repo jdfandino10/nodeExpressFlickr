@@ -25,7 +25,7 @@ class App extends Component {
 
   getImgs = (query, callback)=>{
     console.log('va a hacer getImgs '+query);
-    axios.get('http://localhost:9000/flickr/' + query)
+    axios.get('/flickr/' + query)
     .then(function(response) {
       console.log(response);
       if(response.statusText === 'OK') {
