@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+import Pic from './Pic';
 
 class Pics extends Component {
 
@@ -8,8 +8,22 @@ class Pics extends Component {
     this.state = {
       'imgs':[]
     };
-    
   }
+  componentWillReceiveProps(props) {
+    var str = this.props.color+"_"+ props.query;
+    this.props.getImgs(str, this.setImgs);
+  }
+
+  componentDidMount() {
+    if(this.props.query){
+      var str = this.props.color+"_"+ this.props.query;
+      this.props.getImgs(str, this.setImgs);
+    }
+  }
+
+  setImgs = (obj) => {
+    this.setState({'imgs':obj});
+  };
 
   getUrl(farm, server, id, secret) {
     return "https://farm"+
@@ -22,38 +36,19 @@ class Pics extends Component {
     secret +
     "_s.jpg";
   }
-  setImgs = (obj)=> {
-    this.setState({'imgs':obj});
-  };
-
-  getImgs = (query, callback)=>{
-    axios.get('http://localhost:9000/flickr/' + query)
-    .then(function(response) {
-      console.log(response);
-      if(response.statusText === 'OK') {
-        console.log("??");
-        callback(response.data.photos.photo);
-      }else{
-      throw new Error('Network response was not ok.');
-      }
-    })
-    .then(function(data) {
-      console.log("Gotit!");
-      callback(data.photos);
-    })
-    .catch(function(error) {
-      console.log('There has been a problem with your fetch operation: ' + error.message);
-    });
-  }
 
   render() {
-    this.getImgs(this.props.color+"_"+this.props.query, this.setImgs);
+    var style = {
+      'border': '1px solid '+this.props.color,
+      'backgroundColor': this.props.color,
+      'width': '80px'
+    };
     return (
-      <div>
-      {this.state.imgs.map(img => {
+      <div style={style}>
+      {this.state.imgs.map((img, index) => {
                   return (
-                    <div className="row">
-                    <img src={this.getUrl(img.farm, img.server, img.id, img.secret)} />
+                    <div key={index} className="row">
+                    <Pic source={this.getUrl(img.farm, img.server, img.id, img.secret)} color={this.props.color} /> 
                     </div>
                     );}) }
     </div>

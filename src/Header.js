@@ -8,9 +8,11 @@ class Header extends Component {
     return (
 
       <div className="row">
-        <div className="col-xs-12">
+      	<div className="col-xs-2"></div>
+        <div className="col-xs-8">
           <h1>Flickr Rainbow</h1>
         </div>
+        <div className="col-xs-2"></div>
       </div>
     );
   }
