@@ -1,7 +1,7 @@
 # Exam 1, web programming course
 This is an app that uses node+react+flickr api to show images with rainbow order. [You can see the working product here](https://jdfandino10.github.io/nodeExpressFlickr/index.html). There are two inputs; the first one is to search anything, the second one is to add a color. The color must be one that exists on CSS (eg. aqua, maroon, brown, grey, navy, ...) for it to display a color properly. If it is not, it will still show images if any exists for the query but it won't have a specific color. Backend is deployed at heroku synched with master branch, having the api_key and api_secret variables configured there. To run the proyect locally, clone it:
 ```
-git clone https://github.com/john-guerra/nodeExpressFlickr.git myApp
+git clone https://github.com/jdfandino10/nodeExpressFlickr.git myApp
 cd myApp
 echo "my_flickr_api_key" > server/api_key.txt
 echo "my_flickr_api_secret" > server/api_secret.txt
